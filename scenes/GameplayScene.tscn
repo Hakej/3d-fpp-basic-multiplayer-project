@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://cg4j8eybnidy2"]
+
+[ext_resource type="Script" path="res://scripts/scenes/GameplayScene.gd" id="1_pwxfr"]
+[ext_resource type="PackedScene" uid="uid://bts6l80ycpp20" path="res://prefabs/Player.tscn" id="2_y24ie"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wo24v"]
+size = Vector2(100, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2d5i7"]
+
+[sub_resource type="Environment" id="Environment_4xqb0"]
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="GameplayScene" type="Node" node_paths=PackedStringArray("players_container")]
+script = ExtResource("1_pwxfr")
+player_scene = ExtResource("2_y24ie")
+players_container = NodePath("PlayerContainer")
+
+[node name="PlayerContainer" type="Node" parent="."]
+
+[node name="Map" type="Node" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map"]
+mesh = SubResource("PlaneMesh_wo24v")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -8.15986)
+mesh = SubResource("BoxMesh_2d5i7")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9091, 1, 10.6597)
+mesh = SubResource("BoxMesh_2d5i7")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3636, 1, -7.57662)
+mesh = SubResource("BoxMesh_2d5i7")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94112, 1, 2.50439)
+mesh = SubResource("BoxMesh_2d5i7")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.71, 1, -10.268)
+mesh = SubResource("BoxMesh_2d5i7")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.56655, 1, 9.83835)
+mesh = SubResource("BoxMesh_2d5i7")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4xqb0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.934285, 0.356526, 0, -0.356526, 0.934285, 0, 0, 0)

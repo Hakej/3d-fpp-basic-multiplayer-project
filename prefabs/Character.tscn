@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtk6dswgmmay4"]
+
+[ext_resource type="Script" path="res://scripts/prefabs/Character.gd" id="1_esgo2"]
+[ext_resource type="Script" path="res://scripts/Camera.gd" id="2_35c5l"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dwg74"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_jwcpn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cb4vx"]
+size = Vector3(1, 2, 1)
+
+[node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("model")]
+script = ExtResource("1_esgo2")
+model = NodePath("")
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_dwg74")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.556466)
+mesh = SubResource("SphereMesh_jwcpn")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_cb4vx")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+current = true
+script = ExtResource("2_35c5l")
