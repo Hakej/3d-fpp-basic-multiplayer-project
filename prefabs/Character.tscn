@@ -13,7 +13,7 @@ size = Vector3(1, 2, 1)
 
 [node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("model")]
 script = ExtResource("1_esgo2")
-model = NodePath("")
+model = NodePath("Model")
 
 [node name="Model" type="Node3D" parent="."]
 
